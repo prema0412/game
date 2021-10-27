@@ -1,20 +1,20 @@
 
 body{
     // background-image: url(./images/dark-background-overlap-layer-with-star-light-vector.jpg);
-    background-image: url(./images/bg2_image.jpg);
+    background-image: url(./images/bg3_image.jpg);
+    background-size: cover;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    height: auto;
-    width: auto;
+
   }
 
   h1 {
-      color: olive;
+      color: #e1ad01;
       text-align: center;
       font-weight: bolder;
   }
 
   h2 {
-    color: olive;
+    color: #D0312D;
     text-align: center;
     font-weight: bolder;
 }
@@ -25,15 +25,16 @@ body{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width:max-content;
 
     &__start-button {
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        border: 5px solid olive;
-        background-color: aquamarine;
+        border: 5px solid orangered;
+        background-color: #e1ad01;
         font-size: 25px;
-        color: olive;
+        color: orangered;
         font-weight: bolder;
 
     }
@@ -43,8 +44,8 @@ body{
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        font-size: 40px;
-        color: olive;
+        font-size: 30px;
+        color: #e1ad01;
         font-weight: bolder;
 
     }
@@ -59,14 +60,39 @@ body{
     width: 250px;
     height: 250px;
     margin: auto;
-    // margin-left: 25em;
-    // margin-right: 5em;
-    // margin-top: 7rem;
+    
+
+    &__img {
+        animation: svg-target-scroll 2.5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        position: relative;
+        bottom: 600px;
+    }
+
+    
 }
+
+// @keyframes svg-target-scroll {
+//     0%   {top: 0px; left: 0px; background: red;}
+//     25%  {top: 0px; left: 100px; background: blue;}
+//     50%  {top: 100px; left: 100px; background: red;}
+//     75%  {top: 100px; left: 0px; background: blue;}
+//     100% {top: 0px; left: 0px; background: red;}
+//   }
+
+@keyframes svg-target-scroll {
+    from {
+      transform: translateY(50%);
+    }
+    to {
+      transform: translateY(400%);
+    }
+  }
 
 svg {
     #circle {
-        color: rgb(39, 5, 5);
+        color: #610C04;
     }
 
     #path1 {
@@ -82,7 +108,7 @@ svg {
     }
 
     #polygon {
-        color: brown;
+        color: #60100B;
 
     }
 }
@@ -93,6 +119,7 @@ svg {
     flex-direction: row;
     justify-content: space-around;
     margin-top: 50px;
+    cursor: pointer;
    
     
     
@@ -101,28 +128,45 @@ svg {
   
     &__ok-button {
 
-    width: 120px;
-    height: 100px;   
-    font-size: 40px;
-    background-color: olive ;
+    width: 100px;
+    height: 80px;   
+    font-size: 30px;
+    background-color: #e1ad01 ;
     color: whitesmoke;
-    border: 2px solid olive;
+    border: 2px solid orangered;
     border-radius: 20%;
   
     }
 
+
+
     &__nok-button {
 
-        width: 120px;
-        height: 100px;   
-        font-size: 40px;
-        background-color: rgb(124, 6, 6) ;
+        width: 100px;
+        height: 80px;   
+        font-size: 30px;
+        background-color: rgb(226, 24, 24) ;
         color: white;
-        border: 2px solid rgb(48, 2, 2);
+        border: 2px solid rgb(226, 24, 24);
         border-radius: 20%;
       
         }
+
+        &__ok-button:hover, &__nok-button:hover {
+            background-color: sandybrown;
+        }
   }
+
+  .game-score {
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    width:max-content;
+    position: relative;
+
+
+  
 
   .game-score__button {
       display: block;
@@ -130,8 +174,23 @@ svg {
       height: 100px;
       border-radius: 50%;
       border: 5px solid orangered;
-      background-color: aquamarine;
+      background-color: #e1ad01;
       font-size: 40px;
       color: orangered;
       font-weight: bolder;
+
   }
+
+  &__heading    {
+
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: #e1ad01;
+    font-weight: bolder;
+    text-align: justify;
+    align-self: center;
+
+    }
+}
