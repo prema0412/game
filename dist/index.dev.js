@@ -10,11 +10,16 @@ var path2 = document.getElementById('path2');
 var path3 = document.getElementById('path3');
 var polygon = document.getElementById('polygon');
 var image = document.getElementsByClassName('target__img');
+
+var _final = document.getElementById('final');
+
 var expectedResponse = 'Yes'; // This is our timer function. This will stop the game after 50 seconds
 
 var handleTimerStart = function handleTimerStart() {
   startGame();
+  document.getElementById('audio').play();
   secondsRemaining = '50';
+  _final.style.display = "none";
   var timerHandler = setInterval(function () {
     if (secondsRemaining == '0') {
       clearInterval(timerHandler);
@@ -44,6 +49,7 @@ var handleNokResponse = function handleNokResponse() {
 
 
 var startGame = function startGame() {
+  document.getElementById('audio').play();
   expectedResponse = 'N';
   handlerOne = setInterval(function () {
     console.log(timerDisplay.innerHTML);
@@ -66,32 +72,33 @@ var startGame = function startGame() {
   expectedResponse = 'N';
   handlerFour = setInterval(function () {
     console.log(secondsRemaining);
-    console.log(expectedResponse);
-    changeColor("yellow", "blue", "red", "green", "yellow");
-  }, 7000);
+    console.log(expectedResponse); // changeColor("yellow", "blue", "red", "green", "yellow");
+
+    changeColor("red", "blue", "red", "green", "red");
+  }, 6000);
   expectedResponse = 'N';
   handlerFive = setInterval(function () {
     console.log(secondsRemaining);
     console.log(expectedResponse);
-    changeColor("yellow", "blue", "red", "green", "yellow");
-  }, 7000);
+    changeColor("red", "blue", "red", "green", "red");
+  }, 6000);
   expectedResponse = 'N';
   handlerSix = setInterval(function () {
     console.log(secondsRemaining);
     console.log(expectedResponse);
-    changeColor("yellow", "blue", "red", "green", "yellow");
-  }, 7000);
+    changeColor("blue", "red", "yello", "green", "blue");
+  }, 6000);
   expectedResponse = 'N';
   handlerSeven = setInterval(function () {
     console.log(timerDisplay.innerHTML);
     console.log(expectedResponse);
     changeColor("green", "red", "blue", "yellow", "green");
-  }, 8000);
-  expectedResponse = 'N';
+  }, 7000);
+  expectedResponse = 'Y';
   handlerEight = setInterval(function () {
     console.log(timerDisplay.innerHTML);
     changeColor("red", "green", "orange", "blue", "red");
-  }, 8000);
+  }, 7000);
 };
 
 var colourChangeCounter = '0'; //Let us change the colours of different segments of the SVG image
@@ -109,11 +116,11 @@ var changeColor = function changeColor(color1, color2, color3, color4, color5) {
 
 
 var stopGame = function stopGame() {
-  var _final = document.getElementById('final');
+  var _final2 = document.getElementById('final');
 
-  _final.style.display = "block";
-  _final.innerHTML = "Your Score is:  " + score;
-  console.log(_final);
+  _final2.style.display = "block";
+  _final2.innerHTML = "Your Score is:  " + score;
+  console.log(_final2);
   clearInterval(handlerOne);
   clearInterval(handlerTwo);
   clearInterval(handlerThree);
@@ -123,6 +130,7 @@ var stopGame = function stopGame() {
   clearInterval(handlerSeven);
   score = '0';
   secondsRemaining = '50';
+  document.getElementById('audio').pause();
 }; //let us see if sleep works - this froze everuthing so not using
 // const sleep = (milliseconds) => {
 //   const date = Date.now();

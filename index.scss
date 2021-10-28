@@ -63,16 +63,18 @@ body{
     
 
     &__img {
-        animation: svg-target-scroll 2.5s;
+        animation: svg-target-scroll 3s;
         animation-iteration-count: infinite;
-        animation-direction: alternate;
-        animation-timing-function: ease-in-out;
+        animation-direction: normal;
+        animation-timing-function: linear;
         position: relative;
         bottom: 600px;
     }
 
     
 }
+
+// This animation does not suite the game
 
 // @keyframes svg-target-scroll {
 //     0%   {top: 0px; left: 0px; background: red;}
@@ -82,12 +84,14 @@ body{
 //     100% {top: 0px; left: 0px; background: red;}
 //   }
 
+// This will make the image scroll vertically and disppear for a while
+
 @keyframes svg-target-scroll {
     from {
-      transform: translateY(50%);
+      transform: translateY(10%);
     }
     to {
-      transform: translateY(400%);
+      transform: translateY(450%);
     }
   }
 

@@ -48,20 +48,20 @@ h2 {
   margin: auto;
 }
 .target__img {
-  animation: svg-target-scroll 2.5s;
+  animation: svg-target-scroll 3s;
   animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: ease-in-out;
+  animation-direction: normal;
+  animation-timing-function: linear;
   position: relative;
   bottom: 600px;
 }
 
 @keyframes svg-target-scroll {
   from {
-    transform: translateY(50%);
+    transform: translateY(10%);
   }
   to {
-    transform: translateY(400%);
+    transform: translateY(450%);
   }
 }
 svg #circle {

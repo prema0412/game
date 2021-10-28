@@ -9,7 +9,6 @@ const path2 = document.getElementById('path2');
 const path3 = document.getElementById('path3');
 const polygon = document.getElementById('polygon');
 const image = document.getElementsByClassName('target__img')
-const final = document.getElementById('final');
 let expectedResponse = 'Yes'
 
 // This is our timer function. This will stop the game after 50 seconds
@@ -17,9 +16,7 @@ let expectedResponse = 'Yes'
 const handleTimerStart = () => {
 
    startGame();
-   document.getElementById('audio').play();
    secondsRemaining = '50';
-   final.style.display = "none";
     const timerHandler = setInterval(() => {
         if (secondsRemaining == '0') {
             clearInterval(timerHandler);
@@ -63,8 +60,6 @@ const handleNokResponse = () => {
 
 //Let's start the game
 const startGame = () => {
-
-  document.getElementById('audio').play();
 
   expectedResponse = 'N'
 
@@ -120,12 +115,10 @@ const startGame = () => {
       console.log(expectedResponse);
 
 
-      // changeColor("yellow", "blue", "red", "green", "yellow");
-
-      changeColor("red", "blue", "red", "green", "red");
+      changeColor("yellow", "blue", "red", "green", "yellow");
     
 
-  }, 6000);  
+  }, 7000);  
 
   expectedResponse = 'N'
 
@@ -137,10 +130,10 @@ const startGame = () => {
     console.log(expectedResponse);
 
 
-    changeColor("red", "blue", "red", "green", "red");
+    changeColor("yellow", "blue", "red", "green", "yellow");
   
 
-}, 6000);  
+}, 7000);  
 
 expectedResponse = 'N'
 
@@ -152,10 +145,10 @@ handlerSix = setInterval(() => {
   console.log(expectedResponse);
 
 
-  changeColor("blue", "red", "yello", "green", "blue");
+  changeColor("yellow", "blue", "red", "green", "yellow");
 
 
-}, 6000);  
+}, 7000);  
 
 expectedResponse = 'N'
 
@@ -170,9 +163,9 @@ expectedResponse = 'N'
     changeColor("green", "red", "blue", "yellow","green");
   
 
-}, 7000);  
+}, 8000);  
 
-expectedResponse = 'Y'
+expectedResponse = 'N'
 
 handlerEight = setInterval(() => {
 
@@ -181,7 +174,7 @@ handlerEight = setInterval(() => {
   changeColor("red", "green", "orange", "blue", "red");
 
 
-}, 7000);  
+}, 8000);  
 
   }  
 
@@ -229,7 +222,6 @@ const stopGame = () => {
 
   score = '0';
   secondsRemaining = '50';
-  document.getElementById('audio').pause();
  
   
 }
