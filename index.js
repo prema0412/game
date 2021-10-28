@@ -1,3 +1,5 @@
+// Play this game to practice agility, obervation and memory and listen to the healing Tibetian music while playing it
+
 let secondsRemaining = '50';
 let score = '0';
 const timerDisplay = document.getElementById("timer-heading");
@@ -8,6 +10,8 @@ const path3 = document.getElementById('path3');
 const polygon = document.getElementById('polygon');
 const image = document.getElementsByClassName('target__img')
 let expectedResponse = 'Yes'
+
+// This is our timer function. This will stop the game after 50 seconds
 
 const handleTimerStart = () => {
 
@@ -23,6 +27,9 @@ const handleTimerStart = () => {
     }, 1000);    
 }
 
+
+// This function updates the score if you are right when you click 'Yes' button i.e. you identify that the image displayed is same as the previous image
+
 const handleOkResponse = () => {
 
   console.log("I am in Ok" + " " + expectedResponse);
@@ -34,6 +41,9 @@ const handleOkResponse = () => {
   document.getElementById('score-button').innerHTML = score;
 
 }
+
+
+// This function updates the score if you are right when you click 'No' button i.e. you identify that the image displayed is different then the previous image
 
 const handleNokResponse = () => {
 
@@ -47,6 +57,8 @@ const handleNokResponse = () => {
 
 }
 
+
+//Let's start the game
 const startGame = () => {
 
   expectedResponse = 'N'
@@ -108,7 +120,7 @@ const startGame = () => {
 
   }, 7000);  
 
-  expectedResponse = 'Y'
+  expectedResponse = 'N'
 
   handlerFive = setInterval(() => {
 
@@ -123,7 +135,7 @@ const startGame = () => {
 
 }, 7000);  
 
-expectedResponse = 'Y'
+expectedResponse = 'N'
 
 handlerSix = setInterval(() => {
 
@@ -166,10 +178,40 @@ handlerEight = setInterval(() => {
 
   }  
 
+  let colourChangeCounter = '0';
+
+  //Let us change the colours of different segments of the SVG image
+
+  const changeColor = ( (color1, color2, color3, color4, color5) => {
+
+    colourChangeCounter++;
+
+    console.log("changing color" + " " + colourChangeCounter);
+  
+    document.getElementById('circle').style.color = color1;
+    document.getElementById('polygon').style.color = color2;
+    document.getElementById('path1').style.color = color3;
+    document.getElementById('path2').style.color = color4;
+    document.getElementById('path3').style.color = color5;
+  
+    return
+  
+    
+  
+  });
+
+
+// Time up, let's stop the game and see your score  
 
 const stopGame = () => {
 
-  alert("Your score" + " "+ score);
+  let final = document.getElementById('final');
+  final.style.display = "block";
+  final.innerHTML = "Your Score is:  " + score;
+  
+  console.log(final);
+
+ 
   clearInterval(handlerOne);
   clearInterval(handlerTwo);
   clearInterval(handlerThree);
@@ -177,51 +219,21 @@ const stopGame = () => {
   clearInterval(handlerFive);
   clearInterval(handlerSix);
   clearInterval(handlerSeven);
-  clearInterval(handlerEight);
 
-  document.getElementsByClassName('final-score').innerHTML = `Your Final Score is : ${score}`;
   score = '0';
   secondsRemaining = '50';
  
-  // secondsRemaining = 1;
-  // handleTimerStart();
+  
 }
 
 
-const changeColor = ( (color1, color2, color3, color4, color5) => {
+//let us see if sleep works - this froze everuthing so not using
 
-  expectedResponse = 'Y' 
-
-  document.getElementById('circle').style.color = color1;
-  document.getElementById('polygon').style.color = color2;
-  document.getElementById('path1').style.color = color3;
-  document.getElementById('path2').style.color = color4;
-  document.getElementById('path3').style.color = color5;
-
-  return
-
-  
-
-});
-
-//let us see if sleep works
-
-const sleep = (milliseconds) => {
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
-}
- // changeColor("green", "red", "blue", "yellow","green");
-
-
-      // changeColor("red", "green", "orange", "blue", "red");
-
-      // changeColor("yellow", "blue", "red", "green", "yellow");
-  
-
-      // changeColor("blue", "red", "blue", "yellow","blue");
-    
-
-      // changeColor("orange", "green", "orange", "blue", "orange");
+// const sleep = (milliseconds) => {
+//   const date = Date.now();
+//   let currentDate = null;
+//   do {
+//     currentDate = Date.now();
+//   } while (currentDate - date < milliseconds);
+// }
+ 

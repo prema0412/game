@@ -66,6 +66,7 @@ body{
         animation: svg-target-scroll 2.5s;
         animation-iteration-count: infinite;
         animation-direction: alternate;
+        animation-timing-function: ease-in-out;
         position: relative;
         bottom: 600px;
     }
@@ -193,4 +194,14 @@ svg {
     align-self: center;
 
     }
+}
+
+#final {
+    display: none;
+    border: 5px solid orangered;
+    border-radius: 20%;
+    font-weight: bold;
+    font-size: 50px;
+    color: #e1ad01;
+    text-align: center;
 }
