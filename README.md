@@ -14,9 +14,9 @@
 
 ### Click 'Yes' button if you think that the currently scrolling image is same as the previous one.
 
-### Click 'No' buttom if you think that the currently scrolling image is different than the previous one.
+### Click 'No' button if you think that the currently scrolling image is different than the previous one.
 
-### You will score a point when your gues is right.
+### You will score a point when your guess is right.
 
 ### See your final score on the center of the game board. It will be displayed when game ends.
 
