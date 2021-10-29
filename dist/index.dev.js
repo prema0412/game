@@ -3,21 +3,18 @@
 // Play this game to practice agility, obervation and memory and listen to the healing Tibetian music while playing it
 var secondsRemaining = '50';
 var score = '0';
+var gameOn = '';
 var timerDisplay = document.getElementById("timer-heading");
-var circle = document.getElementById('circle');
-var path1 = document.getElementById('path1');
-var path2 = document.getElementById('path2');
-var path3 = document.getElementById('path3');
-var polygon = document.getElementById('polygon');
-var image = document.getElementsByClassName('target__img');
 
 var _final = document.getElementById('final');
 
+var startButton = document.getElementById('start-button');
 var expectedResponse = 'Yes'; // This is our timer function. This will stop the game after 50 seconds
 
 var handleTimerStart = function handleTimerStart() {
-  startGame();
   document.getElementById('audio').play();
+  gameOn = true;
+  startGame();
   secondsRemaining = '50';
   _final.style.display = "none";
   var timerHandler = setInterval(function () {
@@ -29,90 +26,83 @@ var handleTimerStart = function handleTimerStart() {
     timerDisplay.innerHTML = secondsRemaining;
     secondsRemaining--;
   }, 1000);
-}; // This function updates the score if you are right when you click 'Yes' button i.e. you identify that the image displayed is same as the previous image
+}; //handleTimerStart
+// This function updates the score if you are right when you click 'Yes' button i.e. you identify that the image displayed is same as the previous image
 
 
 var handleOkResponse = function handleOkResponse() {
-  console.log("I am in Ok" + " " + expectedResponse); // if (document.getElementById('ok-button').innerHTML == 'Yes') score++;
-
-  if (document.getElementById('ok-button').innerHTML === expectedResponse) score++;
+  console.log("I am in Ok" + " " + expectedResponse);
+  if (gameOn & document.getElementById('ok-button').innerHTML === expectedResponse) score++;
   document.getElementById('score-button').innerHTML = score;
-}; // This function updates the score if you are right when you click 'No' button i.e. you identify that the image displayed is different then the previous image
+}; // handleOkResponse
+// This function updates the score if you are right when you click 'No' button i.e. you identify that the image displayed is different then the previous image
 
 
 var handleNokResponse = function handleNokResponse() {
-  console.log("I am in nOk" + " " + expectedResponse); //if (document.getElementById('nok-button').innerHTML == 'No') score--;
-
-  if (document.getElementById('nok-button').innerHTML === expectedResponse) score++;
+  console.log("I am in nOk" + " " + expectedResponse);
+  if (gameOn && document.getElementById('nok-button').innerHTML === expectedResponse) score++;
   document.getElementById('score-button').innerHTML = score;
-}; //Let's start the game
+}; // handleNokResponse
+//Let's start the game
 
 
 var startGame = function startGame() {
-  document.getElementById('audio').play();
-  expectedResponse = 'N';
-  handlerOne = setInterval(function () {
-    console.log(timerDisplay.innerHTML);
-    expectedResponse = 'Yes';
-    console.log(expectedResponse);
-    changeColor("red", "green", "orange", "blue", "red");
+  startButton.disabled = true;
+  gameHandler = setInterval(function () {
+    changeColor();
   }, 2000);
-  expectedResponse = 'Y';
-  handlerTwo = setInterval(function () {
-    console.log(timerDisplay.innerHTML);
-    console.log(expectedResponse);
-    changeColor("red", "green", "orange", "blue", "red");
-  }, 2000);
-  expectedResponse = 'Y';
-  handlerThree = setInterval(function () {
-    console.log(timerDisplay.innerHTML);
-    console.log(expectedResponse);
-    changeColor("red", "green", "orange", "blue", "red");
-  }, 2000);
-  expectedResponse = 'N';
-  handlerFour = setInterval(function () {
-    console.log(secondsRemaining);
-    console.log(expectedResponse); // changeColor("yellow", "blue", "red", "green", "yellow");
+}; //startGame
 
-    changeColor("red", "blue", "red", "green", "red");
-  }, 6000);
-  expectedResponse = 'N';
-  handlerFive = setInterval(function () {
-    console.log(secondsRemaining);
-    console.log(expectedResponse);
-    changeColor("red", "blue", "red", "green", "red");
-  }, 6000);
-  expectedResponse = 'N';
-  handlerSix = setInterval(function () {
-    console.log(secondsRemaining);
-    console.log(expectedResponse);
-    changeColor("blue", "red", "yello", "green", "blue");
-  }, 6000);
-  expectedResponse = 'N';
-  handlerSeven = setInterval(function () {
-    console.log(timerDisplay.innerHTML);
-    console.log(expectedResponse);
-    changeColor("green", "red", "blue", "yellow", "green");
-  }, 7000);
-  expectedResponse = 'Y';
-  handlerEight = setInterval(function () {
-    console.log(timerDisplay.innerHTML);
-    changeColor("red", "green", "orange", "blue", "red");
-  }, 7000);
-};
 
 var colourChangeCounter = '0'; //Let us change the colours of different segments of the SVG image
 
-var changeColor = function changeColor(color1, color2, color3, color4, color5) {
+var changeColor = function changeColor() {
   colourChangeCounter++;
   console.log("changing color" + " " + colourChangeCounter);
-  document.getElementById('circle').style.color = color1;
-  document.getElementById('polygon').style.color = color2;
-  document.getElementById('path1').style.color = color3;
-  document.getElementById('path2').style.color = color4;
-  document.getElementById('path3').style.color = color5;
+
+  if (colourChangeCounter >= 5 && colourChangeCounter <= 7) {
+    expectedResponse = 'No';
+    console.log("I am here");
+    document.getElementById('path1').style.color = "brown";
+    document.getElementById('path2').style.color = "black";
+    document.getElementById('path3').style.color = "blue";
+  } else if (colourChangeCounter >= 16 && colourChangeCounter <= 18) {
+    expectedResponse = 'No';
+    console.log("I am here");
+    document.getElementById('path1').style.color = "blue";
+    document.getElementById('path2').style.color = "black";
+    document.getElementById('path3').style.color = "brown";
+  } else if (colourChangeCounter >= 26 && colourChangeCounter <= 28) {
+    expectedResponse = 'No';
+    console.log("I am here");
+    document.getElementById('path1').style.color = "black";
+    document.getElementById('path2').style.color = "blue";
+    document.getElementById('path3').style.color = "brown";
+  } else if (colourChangeCounter >= 36 && colourChangeCounter <= 38) {
+    expectedResponse = 'No';
+    console.log("I am here");
+    document.getElementById('path1').style.color = "#E3242B";
+    document.getElementById('path2').style.color = "#60100B";
+    document.getElementById('path3').style.color = "#BC544B";
+  } else if (colourChangeCounter >= 46 && colourChangeCounter <= 49) {
+    expectedResponse = 'No';
+    console.log("I am here");
+    document.getElementById('path1').style.color = "#D0312D";
+    document.getElementById('path2').style.color = "#990F02";
+    document.getElementById('path3').style.color = "#E3242B";
+  } else {
+    expectedResponse = 'Yes';
+    document.getElementById('circle').style.color = "#60100B";
+    document.getElementById('path1').style.color = "rgb(129, 26, 26)";
+    document.getElementById('path2').style.color = "rgb(153, 93, 93)";
+    document.getElementById('path3').style.color = "rgb(226, 24, 24)";
+    document.getElementById('polygon').style.color = "#610C04";
+  }
+
+  colourChangeCounter++;
   return;
-}; // Time up, let's stop the game and see your score  
+}; // changeColor
+// Time up, let's stop the game and see your score  
 
 
 var stopGame = function stopGame() {
@@ -120,18 +110,15 @@ var stopGame = function stopGame() {
 
   _final2.style.display = "block";
   _final2.innerHTML = "Your Score is:  " + score;
-  console.log(_final2);
-  clearInterval(handlerOne);
-  clearInterval(handlerTwo);
-  clearInterval(handlerThree);
-  clearInterval(handlerFour);
-  clearInterval(handlerFive);
-  clearInterval(handlerSix);
-  clearInterval(handlerSeven);
+  clearInterval(gameHandler);
   score = '0';
   secondsRemaining = '50';
+  gameOn = 'false';
+  startButton.disabled = false;
   document.getElementById('audio').pause();
-}; //let us see if sleep works - this froze everuthing so not using
+  document.getElementById('score-button').innerHTML = score;
+}; // stopGame
+//let us see if sleep works - this froze everuthing so not using
 // const sleep = (milliseconds) => {
 //   const date = Date.now();
 //   let currentDate = null;

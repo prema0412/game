@@ -10,9 +10,10 @@
 </head>
 <body>
 
-<h1>Is the Image identical to the previous one?</h1>
+<h1>Is the image exactly same as before?</h1>
 
-<div class="timer">
+<div class="timer tooltip">
+  <span class="tooltiptext">Click me to start the game</span>
   <button class="timer__start-button" id="start-button" onclick="handleTimerStart()">START</button>
   <h2 class="timer__heading" id="timer-heading">Time: 50s</h2>
   
@@ -61,7 +62,6 @@
   </div>
 
   <div class="game-score">
-    <h2 class="game-score__count" id="score">Your Score</h2>
     <button class="game-score__button" id="score-button">0</button>
   </div>
 </body>

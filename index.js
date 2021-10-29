@@ -2,22 +2,21 @@
 
 let secondsRemaining = '50';
 let score = '0';
+let gameOn = '';
 const timerDisplay = document.getElementById("timer-heading");
-const circle = document.getElementById('circle');
-const path1 = document.getElementById('path1');
-const path2 = document.getElementById('path2');
-const path3 = document.getElementById('path3');
-const polygon = document.getElementById('polygon');
-const image = document.getElementsByClassName('target__img')
 const final = document.getElementById('final');
+const startButton = document.getElementById('start-button');
 let expectedResponse = 'Yes'
 
 // This is our timer function. This will stop the game after 50 seconds
 
 const handleTimerStart = () => {
 
-   startGame();
-   document.getElementById('audio').play();
+  document.getElementById('audio').play();
+ 
+  gameOn = true;
+  startGame();
+  
    secondsRemaining = '50';
    final.style.display = "none";
     const timerHandler = setInterval(() => {
@@ -28,7 +27,7 @@ const handleTimerStart = () => {
         timerDisplay.innerHTML = secondsRemaining;
         secondsRemaining --;
     }, 1000);    
-}
+} //handleTimerStart
 
 
 // This function updates the score if you are right when you click 'Yes' button i.e. you identify that the image displayed is same as the previous image
@@ -37,13 +36,11 @@ const handleOkResponse = () => {
 
   console.log("I am in Ok" + " " + expectedResponse);
 
- // if (document.getElementById('ok-button').innerHTML == 'Yes') score++;
-
- if (document.getElementById('ok-button').innerHTML === expectedResponse) score++;
+ if ( (gameOn) & (document.getElementById('ok-button').innerHTML === expectedResponse) ) score++;
 
   document.getElementById('score-button').innerHTML = score;
 
-}
+} // handleOkResponse
 
 
 // This function updates the score if you are right when you click 'No' button i.e. you identify that the image displayed is different then the previous image
@@ -52,161 +49,130 @@ const handleNokResponse = () => {
 
   console.log("I am in nOk" + " " + expectedResponse);
 
-  //if (document.getElementById('nok-button').innerHTML == 'No') score--;
-
-  if (document.getElementById('nok-button').innerHTML === expectedResponse) score++;
+  if ( (gameOn) && (document.getElementById('nok-button').innerHTML === expectedResponse ) ) score++;
 
   document.getElementById('score-button').innerHTML = score;
 
-}
+} // handleNokResponse
 
 
 //Let's start the game
 const startGame = () => {
 
-  document.getElementById('audio').play();
+  startButton.disabled = true;
 
-  expectedResponse = 'N'
 
-      handlerOne = setInterval(() => {
+      gameHandler = setInterval(() => {
 
-        console.log(timerDisplay.innerHTML);
-
-        expectedResponse = 'Yes'
-        console.log(expectedResponse);
-
-        changeColor("red", "green", "orange", "blue", "red");
+        changeColor();
       
 
     }, 2000); 
 
-    expectedResponse = 'Y' 
 
+  }  //startGame
 
-    handlerTwo = setInterval(() => {
-
-      console.log(timerDisplay.innerHTML);
-
-      
-      console.log(expectedResponse);
-
-      changeColor("red", "green", "orange", "blue", "red");
-    
-
-  }, 2000);  
-
-  expectedResponse = 'Y' 
-
-
-  handlerThree = setInterval(() => {
-
-    console.log(timerDisplay.innerHTML);
-
-    
-    console.log(expectedResponse);
-
-    changeColor("red", "green", "orange", "blue", "red");
-  
-
-}, 2000);  
-
-  expectedResponse = 'N'
-
-    handlerFour = setInterval(() => {
-
-      console.log(secondsRemaining);
-
-      
-      console.log(expectedResponse);
-
-
-      // changeColor("yellow", "blue", "red", "green", "yellow");
-
-      changeColor("red", "blue", "red", "green", "red");
-    
-
-  }, 6000);  
-
-  expectedResponse = 'N'
-
-  handlerFive = setInterval(() => {
-
-    console.log(secondsRemaining);
-
-   
-    console.log(expectedResponse);
-
-
-    changeColor("red", "blue", "red", "green", "red");
-  
-
-}, 6000);  
-
-expectedResponse = 'N'
-
-handlerSix = setInterval(() => {
-
-  console.log(secondsRemaining);
-
- 
-  console.log(expectedResponse);
-
-
-  changeColor("blue", "red", "yello", "green", "blue");
-
-
-}, 6000);  
-
-expectedResponse = 'N'
-
-  handlerSeven = setInterval(() => {
-
-    console.log(timerDisplay.innerHTML);
-
-   
-    console.log(expectedResponse);
-   
-
-    changeColor("green", "red", "blue", "yellow","green");
-  
-
-}, 7000);  
-
-expectedResponse = 'Y'
-
-handlerEight = setInterval(() => {
-
-  console.log(timerDisplay.innerHTML);
-
-  changeColor("red", "green", "orange", "blue", "red");
-
-
-}, 7000);  
-
-  }  
 
   let colourChangeCounter = '0';
 
   //Let us change the colours of different segments of the SVG image
 
-  const changeColor = ( (color1, color2, color3, color4, color5) => {
+  const changeColor = ( () => {
+
+
 
     colourChangeCounter++;
 
     console.log("changing color" + " " + colourChangeCounter);
+
+
+    if ((colourChangeCounter >= 5) && (colourChangeCounter <= 7)){
+
+      expectedResponse = 'No';
   
-    document.getElementById('circle').style.color = color1;
-    document.getElementById('polygon').style.color = color2;
-    document.getElementById('path1').style.color = color3;
-    document.getElementById('path2').style.color = color4;
-    document.getElementById('path3').style.color = color5;
+        console.log("I am here");
+        document.getElementById('path1').style.color = "brown";
+        document.getElementById('path2').style.color = "black";
+        document.getElementById('path3').style.color = "blue";
   
+        
+      } 
+
+
+    else if  ((colourChangeCounter >= 16) && (colourChangeCounter <= 18))
+    { 
+  
+
+      expectedResponse = 'No';
+
+      console.log("I am here");
+      document.getElementById('path1').style.color = "blue";
+      document.getElementById('path2').style.color = "black";
+      document.getElementById('path3').style.color = "brown";
+
+      
+    }
+
+    else if  ((colourChangeCounter >= 26) && (colourChangeCounter <= 28))
+    { 
+  
+
+      expectedResponse = 'No';
+
+      console.log("I am here");
+      document.getElementById('path1').style.color = "black";
+      document.getElementById('path2').style.color = "blue";
+      document.getElementById('path3').style.color = "brown";
+
+      
+    }
+
+    else if  ((colourChangeCounter >= 36) && (colourChangeCounter <= 38))
+    { 
+  
+
+      expectedResponse = 'No';
+
+      console.log("I am here");
+      document.getElementById('path1').style.color = "#E3242B";
+      document.getElementById('path2').style.color = "#60100B";
+      document.getElementById('path3').style.color = "#BC544B";
+
+      
+    }
+
+    else if  ((colourChangeCounter >= 46) && (colourChangeCounter <= 49))
+    { 
+  
+
+      expectedResponse = 'No';
+
+      console.log("I am here");
+      document.getElementById('path1').style.color = "#D0312D";
+      document.getElementById('path2').style.color = "#990F02";
+      document.getElementById('path3').style.color = "#E3242B";
+
+      
+    }
+
+    else {
+
+    expectedResponse = 'Yes';
+  
+    document.getElementById('circle').style.color = "#60100B";
+    document.getElementById('path1').style.color = "rgb(129, 26, 26)";
+    document.getElementById('path2').style.color = "rgb(153, 93, 93)";
+    document.getElementById('path3').style.color = "rgb(226, 24, 24)";
+    document.getElementById('polygon').style.color = "#610C04";
+
+    }
+  
+    colourChangeCounter++;
     return
   
     
   
-  });
-
+  }); // changeColor
 
 // Time up, let's stop the game and see your score  
 
@@ -216,23 +182,19 @@ const stopGame = () => {
   final.style.display = "block";
   final.innerHTML = "Your Score is:  " + score;
   
-  console.log(final);
 
  
-  clearInterval(handlerOne);
-  clearInterval(handlerTwo);
-  clearInterval(handlerThree);
-  clearInterval(handlerFour);
-  clearInterval(handlerFive);
-  clearInterval(handlerSix);
-  clearInterval(handlerSeven);
+  clearInterval(gameHandler);
 
   score = '0';
   secondsRemaining = '50';
+  gameOn = 'false';
+  startButton.disabled = false;
   document.getElementById('audio').pause();
+  document.getElementById('score-button').innerHTML = score;
  
   
-}
+} // stopGame
 
 
 //let us see if sleep works - this froze everuthing so not using
