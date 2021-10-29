@@ -83,74 +83,154 @@ const startGame = () => {
 
     colourChangeCounter++;
 
-    console.log("changing color" + " " + colourChangeCounter);
-
 
     if ((colourChangeCounter >= 5) && (colourChangeCounter <= 7)){
 
       expectedResponse = 'No';
   
-        console.log("I am here");
-        document.getElementById('path1').style.color = "brown";
-        document.getElementById('path2').style.color = "black";
-        document.getElementById('path3').style.color = "blue";
+        document.getElementById('circle').style.color = "#5C0029";
+        document.getElementById('path3').style.color = "#E3242B";
+        document.getElementById('polygon').style.color = "#5C0029";
   
         
       } 
 
 
-    else if  ((colourChangeCounter >= 16) && (colourChangeCounter <= 18))
+    else if  ((colourChangeCounter >= 16) && (colourChangeCounter <= 19))
     { 
   
 
       expectedResponse = 'No';
 
-      console.log("I am here");
-      document.getElementById('path1').style.color = "blue";
-      document.getElementById('path2').style.color = "black";
-      document.getElementById('path3').style.color = "brown";
-
-      
-    }
-
-    else if  ((colourChangeCounter >= 26) && (colourChangeCounter <= 28))
-    { 
-  
-
-      expectedResponse = 'No';
-
-      console.log("I am here");
-      document.getElementById('path1').style.color = "black";
-      document.getElementById('path2').style.color = "blue";
-      document.getElementById('path3').style.color = "brown";
-
-      
-    }
-
-    else if  ((colourChangeCounter >= 36) && (colourChangeCounter <= 38))
-    { 
-  
-
-      expectedResponse = 'No';
-
-      console.log("I am here");
-      document.getElementById('path1').style.color = "#E3242B";
-      document.getElementById('path2').style.color = "#60100B";
-      document.getElementById('path3').style.color = "#BC544B";
-
-      
-    }
-
-    else if  ((colourChangeCounter >= 46) && (colourChangeCounter <= 49))
-    { 
-  
-
-      expectedResponse = 'No';
-
-      console.log("I am here");
-      document.getElementById('path1').style.color = "#D0312D";
-      document.getElementById('path2').style.color = "#990F02";
+      document.getElementById('circle').style.color = "#5C0029";
       document.getElementById('path3').style.color = "#E3242B";
+      document.getElementById('polygon').style.color = "#5C0029";
+      document.getElementById('path2').style.color = "#5C0029";
+
+      
+    }
+
+    else if  ((colourChangeCounter >= 26) && (colourChangeCounter <= 29))
+    { 
+  
+
+      expectedResponse = 'No';
+
+      document.getElementById('circle').style.color = "#5C0029";
+      document.getElementById('path3').style.color = "#E3242B";
+      document.getElementById('polygon').style.color = "#5C0029";
+      document.getElementById('path2').style.color = "#5C0029";
+
+      
+    }
+
+    else if  ((colourChangeCounter >= 36) && (colourChangeCounter <= 39))
+    { 
+  
+
+      expectedResponse = 'No';
+
+      document.getElementById('circle').style.color = "#5C0029";
+      document.getElementById('path3').style.color = "#E3242B";
+      document.getElementById('polygon').style.color = "#5C0029";
+      document.getElementById('path2').style.color = "#5C0029";
+      
+    }
+
+    else if  ((colourChangeCounter >= 46) && (colourChangeCounter <= 48))
+    { 
+  
+
+      expectedResponse = 'No';
+
+      document.getElementById('circle').style.color = "#5C0029";
+      document.getElementById('path3').style.color = "#E3242B";
+      document.getElementById('polygon').style.color = "#5C0029";
+      document.getElementById('path2').style.color = "#5C0029";
+
+      
+    }
+
+    else if  ((colourChangeCounter >= 58) && (colourChangeCounter <= 60))
+    { 
+  
+
+      expectedResponse = 'No';
+
+      document.getElementById('path3').style.color = "#E3242B";
+      document.getElementById('circle').style.color = "#5C0029";
+      document.getElementById('polygon').style.color = "#5C0029";
+      document.getElementById('path2').style.color = "#5C0029";
+
+      
+    }
+
+    else if  ((colourChangeCounter >= 68) && (colourChangeCounter <= 70))
+    { 
+  
+
+      expectedResponse = 'No';
+
+      document.getElementById('circle').style.color = "#5C0029";
+      document.getElementById('path3').style.color = "#E3242B";
+      document.getElementById('polygon').style.color = "#5C0029";
+      document.getElementById('path2').style.color = "#5C0029";
+
+      
+    }
+
+    else if  ((colourChangeCounter >= 78) && (colourChangeCounter <= 80))
+    { 
+  
+
+      expectedResponse = 'No';
+
+      document.getElementById('circle').style.color = "#5C0029";
+      document.getElementById('path3').style.color = "#E3242B";
+      document.getElementById('polygon').style.color = "#5C0029";
+      document.getElementById('path2').style.color = "#5C0029";
+
+      
+    }
+
+    else if  ((colourChangeCounter >= 88) && (colourChangeCounter <= 90))
+    { 
+  
+
+      expectedResponse = 'No';
+
+      document.getElementById('circle').style.color = "#5C0029";
+      document.getElementById('path3').style.color = "#E3242B";
+      document.getElementById('polygon').style.color = "#5C0029";
+      document.getElementById('path2').style.color = "#5C0029";
+
+      
+    }
+
+    else if  ((colourChangeCounter >= 95) && (colourChangeCounter <= 97))
+    { 
+  
+
+      expectedResponse = 'No';
+
+      document.getElementById('circle').style.color = "#5C0029";
+      document.getElementById('path3').style.color = "#E3242B";
+      document.getElementById('polygon').style.color = "#5C0029";
+      document.getElementById('path2').style.color = "#5C0029";
+
+      
+    }
+
+    else if  ((colourChangeCounter >= 105) && (colourChangeCounter <= 108))
+    { 
+  
+
+      expectedResponse = 'No';
+
+      document.getElementById('circle').style.color = "#5C0029";
+      document.getElementById('path3').style.color = "#E3242B";
+      document.getElementById('polygon').style.color = "#5C0029";
+      document.getElementById('path2').style.color = "#5C0029";
 
       
     }
@@ -159,11 +239,11 @@ const startGame = () => {
 
     expectedResponse = 'Yes';
   
-    document.getElementById('circle').style.color = "#60100B";
-    document.getElementById('path1').style.color = "rgb(129, 26, 26)";
-    document.getElementById('path2').style.color = "rgb(153, 93, 93)";
-    document.getElementById('path3').style.color = "rgb(226, 24, 24)";
-    document.getElementById('polygon').style.color = "#610C04";
+    document.getElementById('circle').style.color = "#D0312D";
+    document.getElementById('path1').style.color = "#811a1a";
+    document.getElementById('path2').style.color = "#D0312D";
+    document.getElementById('path3').style.color = "#5C0029";
+    document.getElementById('polygon').style.color = "#D0312D";
 
     }
   
